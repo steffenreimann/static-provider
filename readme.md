@@ -1,9 +1,9 @@
-# Module Provider
+# Static Provider
 
 With this module you can use npm installed modules like bootstrap on your website on an very Simple way. 
 
 ```batch 
-npm install moduleprovider
+npm install static-provider
 ```
 
 ### Init Module in you node File
@@ -14,15 +14,15 @@ async function start(params) {
     var app = express();
     var httpServer = require('http').createServer(app);
 
-    var mp = require('ModuleProvider');
+    var sp = require('static-provider');
 
-	var ModuleProvider = new mp.Provider(app, express);
+	var staticprovider = new sp.Provider(app, express);
 
-	await ModuleProvider.init();
-	console.log('isPackageInstalled = ', ModuleProvider.isPackageInstalled({ module: 'bootstrap' }));
-	console.log('isPackageInstalled = ', ModuleProvider.isPackageInstalled({ module: 'jquery' }));
-	ModuleProvider.addPackage({ module: 'bootstrap', path: '/dist', requestPath: '/bootstrap' });
-	ModuleProvider.addPackage({ module: 'jquery', path: '/dist' });
+	await staticprovider.init();
+	console.log('isPackageInstalled = ', staticprovider.isPackageInstalled({ module: 'bootstrap' }));
+	console.log('isPackageInstalled = ', staticprovider.isPackageInstalled({ module: 'jquery' }));
+	staticprovider.addPackage({ module: 'bootstrap', path: '/dist', requestPath: '/bootstrap' });
+	staticprovider.addPackage({ module: 'jquery', path: '/dist' });
 }
 ```
 
